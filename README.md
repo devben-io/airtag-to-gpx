@@ -8,13 +8,14 @@ It's useful for tracking the history of an airtag's locations.
 ## Prerequisite
 - a Mac computer (sorry Linux & other OS do not work) =(
 - `jq`
-- your terminal app (e.g. iTerm2) has [FullDisk access](https://osxdaily.com/2018/10/09/fix-operation-not-permitted-terminal-error-macos/)
+- your terminal app (e.g. iTerm2) or `/usr/sbin/cron` has [FullDisk access](https://osxdaily.com/2018/10/09/fix-operation-not-permitted-terminal-error-macos/)
 
 ## Prepare
-If not already done, make the script executable:
-```bash
-$ chmod +x <PATH-TO-REPO>/airtag-to-gpx.sh
-```
+- If not already done, make the script executable:
+  ```bash
+  $ chmod +x <PATH-TO-REPO>/airtag-to-gpx.sh
+  ```
+- The **Find My.app** must be running & remain open for regular updates of the local cache.
 
 ## Usage
 ```bash
@@ -27,7 +28,7 @@ $ ./airtag-to-gpx.sh <AIRTAG-NAME>
 $ ./airtag-to-gpx.sh Wallet
 ```
 
-The script runs only once and is meant to be used with a cronjob (or something similar), for testing you can run it indefinitely like this:
+The script runs only once and is meant to be used with a cronjob (or something similar). For testing you can run it indefinitely like this:
 ```bash
 # runs every minute
 $ while true; do ./airtag-to-gpx.sh; echo -n "."; sleep 60; done
